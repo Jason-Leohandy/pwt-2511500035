@@ -1,6 +1,6 @@
 <?php
   session_start();
-  require_once("config/koneksi.php");
+  require_once("koneksi.php");
   if(isset($_SESSION['role'])) {
     $role = $_SESSION['role'];
 ?>
