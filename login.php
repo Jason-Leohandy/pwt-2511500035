@@ -22,7 +22,7 @@ include "config/koneksi.php";
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="index.php"><b>HALO</b>Connect</a>
+    <a href="index.php"><b>Admin</b>LTE3</a>
   </div>
   <div class="card">
     <div class="card-body login-card-body">
@@ -53,14 +53,7 @@ include "config/koneksi.php";
         </div>
       </form>
 
-      <div class="mt-3 text-center">
-        <small class="text-muted">
-          <i class="fas fa-info-circle"></i> Demo Akun:<br>
-        </small>
-      </div>
-    </div>
-  </div>
-</div>
+    
 
 <!-- jQuery -->
 <script src="plugins/jquery/jquery.min.js"></script>
