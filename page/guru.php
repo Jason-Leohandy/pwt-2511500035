@@ -12,8 +12,8 @@
 // Proses hapus data guru
 if(isset($_GET['action'])) {
     if($_GET['action'] == "hapus") {
-        $kd_guru = $_GET['kd'];
-        $query = mysqli_query($koneksi, "DELETE FROM guru WHERE Kd_guru = '$kd_guru'");
+        $id_ekstra035 = $_GET['id'];
+        $query = mysqli_query($koneksi, "DELETE FROM ekstrakulikuler WHERE id_ekstra035 = '$id_ekstra035'");
         if ($query){
             echo '
             <div class="alert alert-warning alert-dismissible">
@@ -36,42 +36,40 @@ if(isset($_GET['action'])) {
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Daftar Guru</h3>
+                <h3 class="card-title">Daftar Ekstrakulikuer</h3>
             </div>
             <div class="card-body">
-                <a href="index.php?page=tambah_guru" class="btn btn-primary btn-sm mb-3">Tambah Guru</a>
+                <a href="index.php?page=tambah_guru" class="btn btn-primary btn-sm mb-3">Tambah Ekstra</a>
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
                             <th>NO</th>
-                            <th>Kode Guru</th>
-                            <th>Nama Guru</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Pendidikan Terakhir</th>
-                            <th>HP</th>
-                            <th>Alamat</th>
+                            <th>id ekstrakulikuler</th>
+                            <th>Nama Esktrakulikuler</th>
+                            <th>Keterangan</th>
+                            <th>Semester</th>
+                            <th>Tahun Ajaran</th>
                             <th>Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
                         $no = 0;
-                        $query = mysqli_query($koneksi, "SELECT * FROM guru ORDER BY Kd_guru ASC");
+                        $query = mysqli_query($koneksi, "SELECT * FROM esktrakulikuler ORDER BY id_ekstra035 ASC");
                         if(mysqli_num_rows($query) > 0) {
                             while ($result = mysqli_fetch_array($query)) {
                                 $no++;
                         ?>
                             <tr>
                                 <td><?= $no; ?></td>
-                                <td><?= $result['Kd_guru']; ?></td>
-                                <td><?= $result['Nm_guru']; ?></td>
-                                <td><?= $result['Jenkel']; ?></td>
-                                <td><?= $result['Pend_terakhir']; ?></td>
-                                <td><?= $result['Hp']; ?></td>
-                                <td><?= $result['Alamat']; ?></td>
+                                <td><?= $result['id_esktra035']; ?></td>
+                                <td><?= $result['nama_esktra035']; ?></td>
+                                <td><?= $result['ket035']; ?></td>
+                                <td><?= $result['semester035']; ?></td>
+                                <td><?= $result['thn_ajaran035']; ?></td>
                                 <td>
-                                    <a href="index.php?page=guru&action=hapus&kd=<?= $result['Kd_guru'] ?>" 
-                                       onclick="return confirm('Apakah Anda yakin ingin menghapus data guru <?= $result['Nm_guru']; ?>?')" 
+                                    <a href="index.php?page=esktrakulikuler&action=hapus&kd=<?= $result['id_esktra035'] ?>" 
+                                       onclick="return confirm('Apakah Anda yakin ingin menghapus data ekstrakulikuler <?= $result['Nama_esktra035']; ?>?')" 
                                        title="Hapus">
                                         <span class="badge badge-danger">Hapus</span>
                                     </a>
@@ -86,7 +84,7 @@ if(isset($_GET['action'])) {
                         } else {
                             echo '
                             <tr>
-                                <td colspan="8" class="text-center">Belum ada data guru</td>
+                                <td colspan="8" class="text-center">Belum ada data Esktrakulikuler</td>
                             </tr>';
                         }
                         ?>

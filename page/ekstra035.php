@@ -12,14 +12,14 @@
 if(isset($_GET['action'])) {
     if($_GET['action'] == "hapus") {
         $id_ekstra035 = $_GET['id'];
-        $query = mysqli_query($koneksi, "DELETE FROM Ekstrakulikuler WHERE 1d_esktra035 = '$id_ekstra035'");
+        $query = mysqli_query($koneksi, "DELETE FROM ekstra_035 WHERE id_esktra035 = '$id_ekstra035'");
         if ($query){
             echo '
             <div class="alert alert-warning alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <i class="icon fas fa-trash"></i> Data Berhasil Dihapus
             </div>';
-            echo '<meta http-equiv="refresh" content="1;url=index.php?page=Ekstrakulikuler">';
+            echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra_035">';
         } else {
             echo '
             <div class="alert alert-danger alert-dismissible">
@@ -52,7 +52,7 @@ if(isset($_GET['action'])) {
                     </thead>
                     <tbody>
                         <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM Ekstrakulikuler ORDER BY id_esktra035 ASC");
+                        $query = mysqli_query($koneksi, "SELECT * FROM ekstra_035 ORDER BY id_esktra035 ASC");
                         if(mysqli_num_rows($query) > 0) {
                             while ($result = mysqli_fetch_array($query)) {
                         ?>
@@ -63,7 +63,7 @@ if(isset($_GET['action'])) {
                                 <td><?= $result['semester035']; ?></td>
                                 <td><?= $result['thn_ajaran035']; ?></td>
                                 <td>
-                                    <a href="index.php?page=Ekstrakulikuler&action=hapus&kd=<?= $result['id_ekstra035'] ?>" 
+                                    <a href="index.php?page=esktra_035&action=hapus&kd=<?= $result['id_ekstra035'] ?>" 
                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data Ekstrakulikuler <?= $result['nama_ekstra035']; ?>?')" 
                                        title="Hapus">
                                         <span class="badge badge-danger">Hapus</span>
