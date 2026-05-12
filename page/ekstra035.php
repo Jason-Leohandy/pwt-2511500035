@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Ekstrakulikuler</h1>
+                <h1 class="m-0 text-dark">Data Ekstrakurikuler</h1>
             </div>
         </div>
     </div>
@@ -11,21 +11,13 @@
 <?php
 if(isset($_GET['action'])) {
     if($_GET['action'] == "hapus") {
-        $id_ekstra035 = $_GET['id'];
-        $query = mysqli_query($koneksi, "DELETE FROM ekstra_035 WHERE id_esktra035 = '$id_ekstra035'");
+        $id = $_GET['id'];
+        $query = mysqli_query($koneksi, "DELETE FROM ekstra035 WHERE id_ekstra035 = '$id' ");
         if ($query){
             echo '
             <div class="alert alert-warning alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="icon fas fa-trash"></i> Data Berhasil Dihapus
-            </div>';
-            echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra_035">';
-        } else {
-            echo '
-            <div class="alert alert-danger alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="icon fas fa-ban"></i> Gagal Menghapus Data: '.mysqli_error($koneksi).'
-            </div>';
+            Berhasil Di Hapus</div>';
+            echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra2511500010">';
         }
     }
 }
@@ -33,59 +25,43 @@ if(isset($_GET['action'])) {
 
 <div class="content">
     <div class="container-fluid">
-        <div class="card">
-            <div class="card-header">
-                <h3 class="card-title">Daftar Ekstrakulikuler</h3>
-            </div>
-            <div class="card-body">
-                <a href="index.php?page=tambah_esktra035" class="btn btn-primary btn-sm mb-3">Tambah Ekstrakulikuler</a>
-                <table class="table table-striped table-bordered">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>NO</th>
-                            <th>Kode Ekstrakulikuler</th>
-                            <th>Keterangan</th>
-                            <th>Semester</th>
-                            <th>Tahun Ajaran</th>
-                            <th>Aksi</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $query = mysqli_query($koneksi, "SELECT * FROM ekstra_035 ORDER BY id_esktra035 ASC");
-                        if(mysqli_num_rows($query) > 0) {
-                            while ($result = mysqli_fetch_array($query)) {
-                        ?>
-                            <tr>
-                                <td><?= $result['id_ekstra035']; ?></td>
-                                <td><?= $result['nama_ekstra035']; ?></td>
-                                <td><?= $result['ket035']; ?></td>
-                                <td><?= $result['semester035']; ?></td>
-                                <td><?= $result['thn_ajaran035']; ?></td>
-                                <td>
-                                    <a href="index.php?page=esktra035&action=hapus&kd=<?= $result['id_ekstra035'] ?>" 
-                                       onclick="return confirm('Apakah Anda yakin ingin menghapus data Ekstrakulikuler <?= $result['nama_ekstra035']; ?>?')" 
-                                       title="Hapus">
-                                        <span class="badge badge-danger">Hapus</span>
-                                    </a>
-                                    <a href="index.php?page=edit_ekstra035&kd=<?= $result['id_esktra035'] ?>" 
-                                       title="Edit">
-                                        <span class="badge badge-warning">Edit</span>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php 
-                            }
-                        } else {
-                            echo '
-                            <tr>
-                                <td colspan="8" class="text-center">Belum ada data Ekstrakulikuler</td>
-                            </tr>';
-                        }
-                        ?>
-                    </tbody>
-                </table>
-            </div>
+    <div class="card">
+        <div class="card-body">
+        <a href="index.php?page=tambah_ekstra2511500010" class="btn btn-primary btn-sm">Tambah Ekstrakurikuler</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>ID Ekstra</th>
+                    <th>Nama Ekstrakurikuler</th>
+                    <th>Keterangan</th>
+                    <th>Semester</th>
+                    <th>Tahun Ajaran</th>
+                </tr>
+            </thead>
+            <tbody>
+            <?php
+            $no = 0;
+            $query = mysqli_query($koneksi, "SELECT * FROM ekstra035");
+            while ($result = mysqli_fetch_array($query)) {
+            $no++;
+            ?>
+                <tr>
+                    <td><?= $no; ?></td>
+                    <td><?= $result['id_ekstra035']; ?></td>
+                    <td><?= $result['nama_ekstra035']; ?></td>
+                    <td><?= $result['ket035']; ?></td>
+                    <td><?= $result['semester035']; ?></td>
+                    <td><?= $result['thn_ajaran035']; ?></td>
+                    <td>
+                        <a href="index.php?page=ekstra035&action=hapus&id=<?= $result['id_ekstra035'] ?>" class="badge badge-danger" onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
+                        <a href="index.php?page=edit_ekstra035&id=<?= $result['id_ekstra035'] ?>" class="badge badge-warning">Edit</a>
+                    </td>
+                </tr>
+            <?php } ?>
+            </tbody>
+        </table>
         </div>
+    </div>
     </div>
 </div>
