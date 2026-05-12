@@ -38,7 +38,7 @@ if(isset($_GET['action'])) {
                 <h3 class="card-title">Daftar Ekstrakulikuler</h3>
             </div>
             <div class="card-body">
-                <a href="index.php?page=tambah_guru" class="btn btn-primary btn-sm mb-3">Tambah Ekstrakulikuler</a>
+                <a href="index.php?page=tambah_esktra035" class="btn btn-primary btn-sm mb-3">Tambah Ekstrakulikuler</a>
                 <table class="table table-striped table-bordered">
                     <thead class="thead-dark">
                         <tr>
@@ -63,7 +63,7 @@ if(isset($_GET['action'])) {
                                 <td><?= $result['semester035']; ?></td>
                                 <td><?= $result['thn_ajaran035']; ?></td>
                                 <td>
-                                    <a href="index.php?page=esktra_035&action=hapus&kd=<?= $result['id_ekstra035'] ?>" 
+                                    <a href="index.php?page=esktra035&action=hapus&kd=<?= $result['id_ekstra035'] ?>" 
                                        onclick="return confirm('Apakah Anda yakin ingin menghapus data Ekstrakulikuler <?= $result['nama_ekstra035']; ?>?')" 
                                        title="Hapus">
                                         <span class="badge badge-danger">Hapus</span>

@@ -5,6 +5,10 @@
     $role = $_SESSION['Role'];
 ?>
 <!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -101,8 +105,8 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           
           <!-- MASTER MENU -->
-          <li class="nav-item <?php echo (isset($_GET['page']) && in_array($_GET['page'], ['guru','siswa','mapel','kelas','Ekstrakulikuler','profil_guru','kelas_guru','jadwal_guru','profil_siswa','jadwal_siswa'])) ? 'menu-open' : ''; ?>">
-            <a href="#" class="nav-link <?php echo (isset($_GET['page']) && in_array($_GET['page'], ['guru','siswa','mapel','kelas','Ekstrakulikuler','profil_guru','kelas_guru','jadwal_guru','profil_siswa','jadwal_siswa'])) ? 'active' : ''; ?>">
+          <li class="nav-item <?php echo (isset($_GET['page']) && in_array($_GET['page'], ['guru','siswa','mapel','kelas','profil_guru','kelas_guru','jadwal_guru','profil_siswa','jadwal_siswa'])) ? 'menu-open' : ''; ?>">
+            <a href="#" class="nav-link <?php echo (isset($_GET['page']) && in_array($_GET['page'], ['guru','siswa','mapel','kelas','profil_guru','kelas_guru','jadwal_guru','profil_siswa','jadwal_siswa'])) ? 'active' : ''; ?>">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>Master <i class="right fas fa-angle-left"></i></p>
             </a>
@@ -128,16 +132,15 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="index.php?page=ekstra2511500010" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'siswa') ? 'active' : ''; ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ekstrakurikuler</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="index.php?page=kelas" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'kelas') ? 'active' : ''; ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
-                </a>
-              </li>
-            </ul>
-            <li class="nav-item">
-                <a href="index.php?page=ekstra_035" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'ekstra_035') ? 'active' : ''; ?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Ekstrakulikuler</p>
                 </a>
               </li>
             </ul>

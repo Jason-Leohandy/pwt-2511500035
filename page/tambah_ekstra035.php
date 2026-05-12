@@ -9,7 +9,7 @@
 </div>
 
 <?php
-$carikode = mysqli_query($koneksi, "SELECT max(id_ekstra035) FROM Ekstrakulikuler") or die(mysqli_error($koneksi));
+$carikode = mysqli_query($koneksi, "SELECT max(id_ekstra035) FROM ekstra_035") or die(mysqli_error($koneksi));
 $datakode = mysqli_fetch_array($carikode);
 
 if($datakode[0]) {
@@ -22,7 +22,7 @@ if($datakode[0]) {
 }
 $_SESSION["ID_EKSTRAKULIKULER"] = $hasilkode;
 
-// Proses simpan data guru
+
 if(isset($_POST['tambah'])){
     $id_esktra035 = mysqli_real_escape_string($koneksi, $_POST['id_ekstra035']);
     $nama_ekstra035 = mysqli_real_escape_string($koneksi, $_POST['nama_ekstra035']);
@@ -30,8 +30,8 @@ if(isset($_POST['tambah'])){
     $semester035 = mysqli_real_escape_string($koneksi, $_POST['semester035']);
     $thn_ajaran035 = mysqli_real_escape_string($koneksi, $_POST['thn_ajaran035']);
     
-    // Cek apakah kode guru sudah ada
-    $cek = mysqli_query($koneksi, "SELECT * FROM Ekstrakulikuler WHERE id_ekstra035 = '$id_ekstra035'");
+
+    $cek = mysqli_query($koneksi, "SELECT * FROM ekstra_035 WHERE id_ekstra035 = '$id_ekstra035'");
     if(mysqli_num_rows($cek) > 0) {
         echo '<div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -39,7 +39,7 @@ if(isset($_POST['tambah'])){
             Kode Guru sudah ada! Gunakan kode yang berbeda.
         </div>';
     } else {
-        $insert = mysqli_query($koneksi, "INSERT INTO Ekstrakulikuler (id_esktra035, nama_esktra035 , ket035, semester035, thn_ajaran035) 
+        $insert = mysqli_query($koneksi, "INSERT INTO ekstra_035 (id_esktra035, nama_esktra035 , ket035, semester035, thn_ajaran035) 
                                           VALUES ('$id_ekstra035', '$nama_ekstra035', '$ket035', '$semester035', '$thn_ajaran035')");
         
         if ($insert){
@@ -48,7 +48,7 @@ if(isset($_POST['tambah'])){
                 <h5><i class="icon fas fa-check"></i> Sukses!</h5>
                 Data Berhasil Disimpan
             </div>';
-            echo '<script>setTimeout(function(){ window.location="index.php?page=guru"; }, 1000);</script>';
+            echo '<script>setTimeout(function(){ window.location="index.php?page=esktra_035"; }, 1000);</script>';
         } else {
             echo '<div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -86,7 +86,7 @@ if(isset($_POST['tambah'])){
                         </select>
                     </div>
                     <div class="form-group">
-                        <label for="semester035">Pendidikan Terakhir</label>
+                        <label for="semester035">Semester</label>
                         <select name="semester035" id="semester035" class="form-control" required>
                             <option value="">-- Pilih Pendidikan Terakhir --</option>
                             <option value="Ganjil">Ganjil</option>
@@ -95,7 +95,7 @@ if(isset($_POST['tambah'])){
                      <div class="form-group">
                         <label for="thn_ajaran035">Tahun Ajaran</label>
                         <select name="thn_ajaran035" id="thn_ajaran035" class="form-control" required>
-                            <option value="">-- Pilih tahun ajara --</option>
+                            <option value="">-- Pilih tahun ajaran --</option>
                             <option value="2006/2007">2006/2007</option>
                             <option value="2006/2007">2007/2008</option>
                         </select>
