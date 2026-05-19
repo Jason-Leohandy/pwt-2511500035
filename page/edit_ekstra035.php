@@ -25,7 +25,7 @@ if(isset($_POST['edit'])){
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
         <h5><i class="icon fas fa-info"></i> Info </h5>
         <h4>Berhasil Disimpan</h4></div>';
-        echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra035">';
+        echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra_035">';
     }else{
         echo '<div class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
@@ -42,15 +42,15 @@ if(isset($_POST['edit'])){
                 <div class="card-body p-2">
                     <form method="POST" action="">
                         <div class="form-group">
-                            <label for="id_ekstra_010">ID Ekstra</label>
+                            <label for="id_ekstra035">ID Ekstra</label>
                             <input type="text" name="id_ekstra035" value="<?= $edit['id_ekstra035']; ?>" class="form-control" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="nama_ekstra_010">Nama Ekstrakurikuler</label>
+                            <label for="nama_ekstra035>Nama Ekstrakurikuler</label>
                             <input type="text" name="nama_ekstra_010" value="<?= $edit['nama_ekstra035']; ?>" id="nama_ekstra035" placeholder="Nama Ekstrakurikuler" class="form-control">
                         </div>
                         <div class="form-group">
-                            <label for="ket_010">Keterangan</label>
+                            <label for="ket035">Keterangan</label>
                             <input type="text" name="ket_010" value="<?= $edit['ket035']; ?>" id="ket035" placeholder="Keterangan" class="form-control">
                         </div>
                         <div class="form-group">

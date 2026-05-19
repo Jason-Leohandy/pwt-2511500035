@@ -17,7 +17,7 @@ if(isset($_GET['action'])) {
             echo '
             <div class="alert alert-warning alert-dismissible">
             Berhasil Di Hapus</div>';
-            echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra035">';
+            echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra_035">';
         }
     }
 }
@@ -42,7 +42,7 @@ if(isset($_GET['action'])) {
             <tbody>
             <?php
             $no = 0;
-            $query = mysqli_query($koneksi, "SELECT * FROM ekstra035");
+            $query = mysqli_query($koneksi, "SELECT * FROM ekstra_035");
             while ($result = mysqli_fetch_array($query)) {
             $no++;
             ?>

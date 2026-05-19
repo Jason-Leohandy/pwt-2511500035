@@ -9,7 +9,7 @@
 </div>
 
 <?php
-$carikode = mysqli_query($koneksi, "SELECT max(id_ekstra035) FROM ekstra035") or die(mysqli_error($koneksi));
+$carikode = mysqli_query($koneksi, "SELECT max(id_ekstra035) FROM ekstra_035") or die(mysqli_error($koneksi));
 $datakode = mysqli_fetch_array($carikode);
 
 if($datakode[0]) {
@@ -37,14 +37,14 @@ if(isset($_POST['tambah'])){
             ID Ekstra sudah ada!
         </div>';
     } else {
-        $insert = mysqli_query($koneksi, "INSERT INTO ekstra025 (id_ekstra035, nama_ekstra035, ket035, semester035, thn_ajaran035) VALUES ('$id_ekstra035','$nama_ekstra035','$ket035','$semester035','$thn_ajaran035')");
+        $insert = mysqli_query($koneksi, "INSERT INTO ekstra_035 (id_ekstra035, nama_ekstra035, ket035, semester035, thn_ajaran035) VALUES ('$id_ekstra035','$nama_ekstra035','$ket035','$semester035','$thn_ajaran035')");
         if ($insert){
             echo '<div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                 <h5><i class="icon fas fa-check"></i> Sukses!</h5>
                 Data Berhasil Disimpan
             </div>';
-            echo '<script>setTimeout(function(){ window.location="index.php?page=ekstra035"; }, 1000);</script>';
+            echo '<script>setTimeout(function(){ window.location="index.php?page=ekstra_035"; }, 1000);</script>';
         } else {
             echo '<div class="alert alert-danger alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -99,7 +99,7 @@ if(isset($_POST['tambah'])){
                     </div>
                     <div class="card-footer">
                         <input type="submit" class="btn btn-primary" name="tambah" value="Simpan">
-                        <a href="index.php?page=ekstra035" class="btn btn-default">Kembali</a>
+                        <a href="index.php?page=ekstra_035" class="btn btn-default">Kembali</a>
                     </div>
                 </form>
             </div>
