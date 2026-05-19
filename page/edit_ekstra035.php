@@ -46,7 +46,7 @@ if(isset($_POST['edit'])){
                             <input type="text" name="id_ekstra035" value="<?= $edit['id_ekstra035']; ?>" class="form-control" readonly>
                         </div>
                         <div class="form-group">
-                            <label for="nama_ekstra035>Nama Ekstrakurikuler</label>
+                            <label for="nama_ekstra035":>Nama Ekstrakurikuler</label>
                             <input type="text" name="nama_ekstra035" value="<?= $edit['nama_ekstra035']; ?>" id="nama_ekstra035" placeholder="Nama Ekstrakurikuler" class="form-control">
                         </div>
                         <div class="form-group">
