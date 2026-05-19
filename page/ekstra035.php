@@ -17,7 +17,7 @@ if(isset($_GET['action'])) {
             echo '
             <div class="alert alert-warning alert-dismissible">
             Berhasil Di Hapus</div>';
-            echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra2511500010">';
+            echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra035">';
         }
     }
 }
@@ -27,7 +27,7 @@ if(isset($_GET['action'])) {
     <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-        <a href="index.php?page=tambah_ekstra2511500010" class="btn btn-primary btn-sm">Tambah Ekstrakurikuler</a>
+        <a href="index.php?page=tambah_ekstra035" class="btn btn-primary btn-sm">Tambah Ekstrakurikuler</a>
         <table class="table table-striped">
             <thead>
                 <tr>
