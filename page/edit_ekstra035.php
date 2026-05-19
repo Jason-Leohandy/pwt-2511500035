@@ -19,13 +19,13 @@ if(isset($_POST['edit'])){
     $semester_010 = $_POST['semester035'];
     $thn_ajaran_010 = $_POST['thn_ajaran035'];
 
-    $update = mysqli_query($koneksi,"UPDATE ekstra035 SET nama_ekstra035='$nama_ekstra035', ket035='$ket035', semester035='$semester035', thn_ajaran035='$thn_ajaran035' WHERE id_ekstra035='$id_ekstra_035' ");
+    $update = mysqli_query($koneksi,"UPDATE ekstra_035 SET nama_ekstra035='$nama_ekstra035', ket035='$ket035', semester035='$semester035', thn_ajaran035='$thn_ajaran035' WHERE id_ekstra035='$id_ekstra_035' ");
     if($update){
         echo '<div class="alert alert-info-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
         <h5><i class="icon fas fa-info"></i> Info </h5>
         <h4>Berhasil Disimpan</h4></div>';
-        echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra2511500010">';
+        echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra035">';
     }else{
         echo '<div class="alert alert-warning alert-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>

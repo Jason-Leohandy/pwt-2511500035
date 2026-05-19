@@ -12,7 +12,7 @@
 if(isset($_GET['action'])) {
     if($_GET['action'] == "hapus") {
         $id = $_GET['id'];
-        $query = mysqli_query($koneksi, "DELETE FROM ekstra035 WHERE id_ekstra035 = '$id' ");
+        $query = mysqli_query($koneksi, "DELETE FROM ekstra_035 WHERE id_ekstra035 = '$id' ");
         if ($query){
             echo '
             <div class="alert alert-warning alert-dismissible">

@@ -29,7 +29,7 @@ if(isset($_POST['tambah'])){
     $semester_010 = mysqli_real_escape_string($koneksi, $_POST['semester035']);
     $thn_ajaran_010 = mysqli_real_escape_string($koneksi, $_POST['thn_ajaran035']);
 
-    $cek = mysqli_query($koneksi, "SELECT * FROM ekstra035 WHERE id_ekstra035 = '$id_ekstra035'");
+    $cek = mysqli_query($koneksi, "SELECT * FROM ekstra_035 WHERE id_ekstra035 = '$id_ekstra035'");
     if(mysqli_num_rows($cek) > 0) {
         echo '<div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
