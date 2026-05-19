@@ -67,7 +67,7 @@ include "config/koneksi.php";
 <?php
 if (isset($_POST['login'])) {
     $Username = mysqli_real_escape_string($koneksi, $_POST['Username']);
-    $Password = $_POST['Password'];
+    $P  assword = $_POST['Password'];
 
     if (empty($Username) || empty($Password)) {
         echo '<script>alert("Username dan Password tidak boleh kosong!");</script>';

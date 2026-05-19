@@ -26,15 +26,14 @@ $_SESSION["KODE_GURU"] = $hasilkode;
 
 // Proses simpan data guru
 if(isset($_POST['tambah'])){
-    $kd_guru = mysqli_real_escape_string($koneksi, $_POST['kd_guru']);
-    $nm_guru = mysqli_real_escape_string($koneksi, $_POST['nm_guru']);
-    $jenkel = mysqli_real_escape_string($koneksi, $_POST['jenkel']);
-    $pend_terakhir = mysqli_real_escape_string($koneksi, $_POST['pend_terakhir']);
-    $hp = mysqli_real_escape_string($koneksi, $_POST['hp']);
-    $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
-    
-    // Cek apakah kode guru sudah ada
-    $cek = mysqli_query($koneksi, "SELECT * FROM guru WHERE Kd_guru = '$kd_guru'");
+    $id_ekstra035 = mysqli_real_escape_string($koneksi, $_POST['id_ekstra035']);
+    $nama_ekstra035 = mysqli_real_escape_string($koneksi, $_POST['nama_ekstra035']);
+    $ket035 = mysqli_real_escape_string($koneksi, $_POST['ket035']);
+    $semester035 = mysqli_real_escape_string($koneksi, $_POST['semester035']);
+    $thn_ajaran035 = mysqli_real_escape_string($koneksi, $_POST['thn_ajaran035']);
+
+
+    $cek = mysqli_query($koneksi, "SELECT * FROM ekstrakulikuler WHERE id_ekstra035 = '$id_ekstra035'");
     if(mysqli_num_rows($cek) > 0) {
         echo '<div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -42,8 +41,8 @@ if(isset($_POST['tambah'])){
             Kode Guru sudah ada! Gunakan kode yang berbeda.
         </div>';
     } else {
-        $insert = mysqli_query($koneksi, "INSERT INTO guru (Kd_guru, Nm_guru, Jenkel, Pend_terakhir, Hp, Alamat) 
-                                          VALUES ('$kd_guru', '$nm_guru', '$jenkel', '$pend_terakhir', '$hp', '$alamat')");
+        $insert = mysqli_query($koneksi, "INSERT INTO esktrakulikuler (id_esktra035, nama_esktra035, ket035, semester035, thn_ajaran035) 
+                                          VALUES ('$id_ekstra035', '$nama_esktra035', '$ket035', '$pend_terakhir', '$hp', '$alamat')");
         
         if ($insert){
             echo '<div class="alert alert-success alert-dismissible">
