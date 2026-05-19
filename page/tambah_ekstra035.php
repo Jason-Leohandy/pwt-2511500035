@@ -22,47 +22,35 @@ if($datakode[0]) {
 }
 $_SESSION["KODE"] = $hasilkode;
 
-
 if(isset($_POST['tambah'])){
-    $id_ekstra035   = mysqli_real_escape_string($koneksi, $_POST['id_ekstra035']);
+    $id_ekstra035 = mysqli_real_escape_string($koneksi, $_POST['id_ekstra035']);
     $nama_ekstra035 = mysqli_real_escape_string($koneksi, $_POST['nama_ekstra035']);
-    $ket035         = mysqli_real_escape_string($koneksi, $_POST['ket035']);
-    $semester035    = mysqli_real_escape_string($koneksi, $_POST['semester035']);
-    $thn_ajaran035  = mysqli_real_escape_string($koneksi, $_POST['thn_ajaran035']);
+    $ket035 = mysqli_real_escape_string($koneksi, $_POST['ket035']);
+    $semester035 = mysqli_real_escape_string($koneksi, $_POST['semester035']);
+    $thn_ajaran035 = mysqli_real_escape_string($koneksi, $_POST['thn_ajaran035']);
 
-    // Validasi agar tidak mengirim integer kosong ke database
-    if (empty($semester035)) {
-        echo '<div class="alert alert-danger alert-dismissible">
+    $cek = mysqli_query($koneksi, "SELECT * FROM ekstra_035 WHERE id_ekstra035 = '$id_ekstra035'");
+    if(mysqli_num_rows($cek) > 0) {
+        echo '<div class="alert alert-warning alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <h5><i class="icon fas fa-ban"></i> Gagal!</h5>
-            Semester harus dipilih.
+            <h5><i class="icon fas fa-exclamation-triangle"></i> Peringatan!</h5>
+            ID Ekstra sudah ada!
         </div>';
     } else {
-        // Cek apakah ID sudah ada
-        $cek = mysqli_query($koneksi, "SELECT * FROM ekstra_035 WHERE id_ekstra035 = '$id_ekstra035'");
-        if(mysqli_num_rows($cek) > 0) {
-            echo '<div class="alert alert-warning alert-dismissible">
+        $insert = mysqli_query($koneksi, "INSERT INTO ekstra_035 (id_ekstra035, nama_ekstra035, ket035, semester035, thn_ajaran035) VALUES ('$id_ekstra035','$nama_ekstra035','$ket035','$semester035','$thn_ajaran035')");
+        if ($insert){
+            echo '<div class="alert alert-success alert-dismissible">
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h5><i class="icon fas fa-exclamation-triangle"></i> Peringatan!</h5>
-                ID Ekstra sudah ada!
+                <h5><i class="icon fas fa-check"></i> Sukses!</h5>
+                Data Berhasil Disimpan
             </div>';
+            echo '<script>setTimeout(function(){ window.location="index.php?page=ekstra035"; }, 1000);</script>';
         } else {
-            // Jalankan Insert
-            $insert = mysqli_query($koneksi, "INSERT INTO ekstra_035 (id_ekstra035, nama_ekstra035, ket035, semester035, thn_ajaran035) VALUES ('$id_ekstra035','$nama_ekstra035','$ket035','$semester035','$thn_ajaran035')");
-            if ($insert){
-                echo '<div class="alert alert-success alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h5><i class="icon fas fa-check"></i> Sukses!</h5>
-                    Data Berhasil Disimpan
-                </div>';
-                echo '<script>setTimeout(function(){ window.location="index.php?page=ekstra035"; }, 1000);</script>';
-            } else {
-                echo '<div class="alert alert-danger alert-dismissible">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                    <h5><i class="icon fas fa-ban"></i> Gagal!</h5>
-                    Data Gagal Disimpan: '.mysqli_error($koneksi).'
-                </div>';
-            }
+            echo '<div class="alert alert-danger alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                <h5><i class="icon fas fa-ban"></i> Gagal!</h5>
+                Data Gagal Disimpan: '.mysqli_error($koneksi).'
+            </div>';
         }
     }
 }
