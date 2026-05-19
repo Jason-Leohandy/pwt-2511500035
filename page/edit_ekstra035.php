@@ -19,7 +19,7 @@ if(isset($_POST['edit'])){
     $semester035 = $_POST['semester035'];
     $thn_ajaran035 = $_POST['thn_ajaran035'];
 
-    $update = mysqli_query($koneksi,"UPDATE ekstra_035 SET nama_ekstra035='$nama_ekstra035', ket035='$ket035', semester035='$semester035', thn_ajaran035='$thn_ajaran035' WHERE id_ekstra035='$id_ekstra_035' ");
+    $update = mysqli_query($koneksi,"UPDATE ekstra_035 SET nama_ekstra035='$nama_ekstra035', ket035='$ket035', semester035='$semester035', thn_ajaran035='$thn_ajaran035' WHERE id_ekstra035='$id_ekstra035' ");
     if($update){
         echo '<div class="alert alert-info-dismissible">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
