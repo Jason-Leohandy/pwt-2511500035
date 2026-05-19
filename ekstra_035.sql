@@ -31,7 +31,7 @@ CREATE TABLE `ekstra_035` (
   `id_ekstra035` varchar(5) NOT NULL,
   `nama_ekstra035` varchar(50) NOT NULL,
   `ket035` varchar(20) NOT NULL,
-  `semester035` int(5) NOT NULL,
+  `semester035` varchar(30) NOT NULL,
   `thn_ajaran035` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
