@@ -13,11 +13,11 @@ $id = $_GET['id'];
 $edit = mysqli_fetch_array(mysqli_query($koneksi,"SELECT * FROM ekstra_035 WHERE id_ekstra035='$id'"));
 
 if(isset($_POST['edit'])){
-    $id_ekstra_010 = $_POST['id_ekstra035'];
-    $nama_ekstra_010 = $_POST['nama_ekstra035'];
-    $ket_010 = $_POST['ket035'];
-    $semester_010 = $_POST['semester035'];
-    $thn_ajaran_010 = $_POST['thn_ajaran035'];
+    $id_ekstra035 = $_POST['id_ekstra035'];
+    $nama_ekstra035 = $_POST['nama_ekstra035'];
+    $ket035 = $_POST['ket035'];
+    $semester035 = $_POST['semester035'];
+    $thn_ajaran035 = $_POST['thn_ajaran035'];
 
     $update = mysqli_query($koneksi,"UPDATE ekstra_035 SET nama_ekstra035='$nama_ekstra035', ket035='$ket035', semester035='$semester035', thn_ajaran035='$thn_ajaran035' WHERE id_ekstra035='$id_ekstra_035' ");
     if($update){
@@ -47,11 +47,11 @@ if(isset($_POST['edit'])){
                         </div>
                         <div class="form-group">
                             <label for="nama_ekstra035>Nama Ekstrakurikuler</label>
-                            <input type="text" name="nama_ekstra_010" value="<?= $edit['nama_ekstra035']; ?>" id="nama_ekstra035" placeholder="Nama Ekstrakurikuler" class="form-control">
+                            <input type="text" name="nama_ekstra035" value="<?= $edit['nama_ekstra035']; ?>" id="nama_ekstra035" placeholder="Nama Ekstrakurikuler" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="ket035">Keterangan</label>
-                            <input type="text" name="ket_010" value="<?= $edit['ket035']; ?>" id="ket035" placeholder="Keterangan" class="form-control">
+                            <input type="text" name="ket035" value="<?= $edit['ket035']; ?>" id="ket035" placeholder="Keterangan" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="semester035">Semester</label>
@@ -66,8 +66,8 @@ if(isset($_POST['edit'])){
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="thn_ajaran_010">Tahun Ajaran</label>
-                            <select name="thn_ajaran_010" id="thn_ajaran_010" class="form-control">
+                            <label for="thn_ajaran035">Tahun Ajaran</label>
+                            <select name="thn_ajaran035" id="thn_ajaran035" class="form-control">
                                 <option value="">Pilih Tahun Ajaran</option>
                                 <option value="2023/2024" <?= ($edit['thn_ajaran035'] == '2023/2024') ? 'selected' : ''; ?>>2023/2024</option>
                                 <option value="2024/2025" <?= ($edit['thn_ajaran035'] == '2024/2025') ? 'selected' : ''; ?>>2024/2025</option>
