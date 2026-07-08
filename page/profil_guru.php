@@ -306,7 +306,13 @@ if(!$data) {
                                 <i class="fas fa-address-card"></i> Informasi Lengkap
                             </h4>
                             
-                       
+                            <div class="info-row">
+                                <div class="info-label">
+                                    <i class="fas fa-id-card"></i> Kode Guru
+                                </div>
+                                <div class="info-value"><?= $data['Kd_guru'] ?></div>
+                            </div>
+                            
                             <div class="info-row">
                                 <div class="info-label">
                                     <i class="fas fa-user"></i> Nama Lengkap
